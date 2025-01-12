@@ -21,7 +21,7 @@
         }
         catch(Exception e)
         {
-            log = $"{e.GetType().Name} {e.Message}";
+            log = $"{e.GetType().Name}: {e.Message}";
         }
         StateHasChanged();
     }
