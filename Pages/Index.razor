@@ -11,11 +11,13 @@
     {
         if (!firstRender) return;
 
+        await Task.Delay(100);
+
         try
         {
             await Task.WhenAll(
-                    LoadByteArray(1),
-                    LoadByteArray(2)
+                    LoadByteArray(),
+                    LoadByteArray()
                 );
             log = "Was successful in getting 2 byte arrays at once.";
         }
@@ -26,7 +28,7 @@
         StateHasChanged();
     }
 
-    private async Task LoadByteArray(int number)
+    private async Task LoadByteArray()
     {
         byte[] array = await JSRuntime.InvokeAsync<byte[]>("getBigByteArray");
     }
